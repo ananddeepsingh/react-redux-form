@@ -22,13 +22,15 @@ class UserForm extends Component {
     let data = store.getState().UserFormDataReducer;
     let isEmpty = Object.values(data).every(x => (x === null || x === ''));
 
+    const { firstName, lastName, email, phone } = data
+
     if (!isEmpty) {
       this.setState({
         data: {
-          firstName: data.firstName,
-          lastName: data.lastName,
-          email: data.email,
-          phone: data.phone
+          firstName,
+          lastName,
+          email,
+          phone
         }
       })
     }
@@ -92,8 +94,8 @@ class UserForm extends Component {
       }), {});
 
     if (Object.entries(formData).length > 0 && formData.constructor === Object) {
-      this.props.saveDataToStoreFn(formData);
-      this.props.history.push(`/summaryPage`);
+      this.props.saveDataToStoreFn(formData); // saving form data to store by using action
+      this.props.history.push(`/summaryPage`); // redirecting to summary page
     } else {
       return false;
     }
