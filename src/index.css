@@ -1,3 +1,10 @@
 .form-group{
   overflow: hidden;
 }
+
+.disabledInput{
+  background: white !important;
+  border: 0;
+  cursor: default !important;
+  box-shadow: 0 0;
+}
